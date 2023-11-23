@@ -247,15 +247,15 @@ function PosModifica(pos) {
 }
 
 function Modifica() {
-    let tagliaElement = document.querySelector('input[name="inlineRadioOptionsM"]:checked');
     let modello = document.getElementById("ModelloM").value;
+    let tagliaElement = document.querySelector('input[name="inlineRadioOptionsM"]:checked');
     try {
-        if (!tagliaElement) {
-            throw "Seleziona una Taglia";
-        }
-
         if (!modello.trim()) {
             throw "Il campo Modello non può essere vuoto";
+        }
+        
+        if (!tagliaElement) {
+            throw "Seleziona una Taglia";
         }
         
         let taglia = tagliaElement.value;
