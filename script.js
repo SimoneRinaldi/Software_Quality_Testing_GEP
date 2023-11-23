@@ -11,7 +11,7 @@ class Bicicletta {
     constructor(tipo, id, modello, taglia, velocita = 0) {
         this.#tipo = tipo;
         this.#id = id;
-        this.#modello = modello;
+        this.modello = modello;
         this.taglia = taglia;
         this.#velocita = velocita;
     }
@@ -34,6 +34,11 @@ class Bicicletta {
 
     nuovaTaglia(nuovaTaglia) {
         this.taglia = nuovaTaglia;
+        StampaTabella();
+    }
+
+    nuovoModello(nuovoModello) {
+        this.modello = nuovoModello;
         StampaTabella();
     }
 
@@ -242,11 +247,17 @@ function PosModifica(pos) {
 }
 
 function Modifica() {
+    let tagliaElement = document.querySelector('input[name="inlineRadioOptionsM"]:checked');
+    let modello = document.getElementById("ModelloM").value;
     try {
-        let tagliaElement = document.querySelector('input[name="inlineRadioOptionsM"]:checked');
         if (!tagliaElement) {
             throw "Seleziona una Taglia";
         }
+
+        if (!modello.trim()) {
+            throw "Il campo Modello non può essere vuoto";
+        }
+        
         let taglia = tagliaElement.value;
 
         if (taglia == ElencoBici[posizioneModifica].taglia) {
