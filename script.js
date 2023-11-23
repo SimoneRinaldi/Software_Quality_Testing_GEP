@@ -1,7 +1,7 @@
 class Bicicletta {
     #tipo;
     #id;
-    #modello;
+    modello;
     taglia;
     #velocita;
 
