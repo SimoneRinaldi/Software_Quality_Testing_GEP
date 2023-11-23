@@ -107,15 +107,15 @@ let ElencoBici = [];
 
 ElencoBici.push(new Bicicletta("Bicicletta", 1, "City Cruiser", "XL", 20));
 ElencoBici.push(new Bicicletta("Bicicletta", 2, "Road Racer", "L", 15));
-ElencoBici.push(new Bicicletta("Bicicletta", 3, "Mountain Explorer", "M", 12));
-ElencoBici.push(new Bicicletta("Bicicletta", 4, "Commuter Pro", "S", 18));
+ElencoBici.push(new Bicicletta("Bicicletta", 3, "Mountain Explorer", "M", 35));
+ElencoBici.push(new Bicicletta("Bicicletta", 4, "Commuter Pro", "S", 50));
 ElencoBici.push(new Bicicletta("Bicicletta", 5, "Folding Compact", "XS", 10));
 
 ElencoBici.push(new MountainBike("MountainBike", 6, "Trail Blazer", "XL", 25, 2, 5));
-ElencoBici.push(new MountainBike("MountainBike", 7, "Ridge Runner", "M", 22, 1, 7));
-ElencoBici.push(new MountainBike("MountainBike", 8, "Peak Climber", "L", 20, 3, 3));
-ElencoBici.push(new MountainBike("MountainBike", 9, "Speed Demon", "S", 28, 2, 4));
-ElencoBici.push(new MountainBike("MountainBike", 10, "Compact Explorer", "XS", 15, 1, 6));
+ElencoBici.push(new MountainBike("MountainBike", 7, "Ridge Runner", "M", 70, 1, 7));
+ElencoBici.push(new MountainBike("MountainBike", 8, "Peak Climber", "L", 20, 3, 1));
+ElencoBici.push(new MountainBike("MountainBike", 9, "Speed Demon", "S", 0, 2, 4));
+ElencoBici.push(new MountainBike("MountainBike", 10, "Compact Explorer", "XS", 100, 1, 6));
 
 let ID = 11;
 
