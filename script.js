@@ -260,11 +260,17 @@ function Modifica() {
         
         let taglia = tagliaElement.value;
 
+        if (modello == ElencoBici[posizioneModifica].modello) {
+            document.getElementById("ModelloM").value = "";
+            throw "Modello Uguale";
+        }
+
         if (taglia == ElencoBici[posizioneModifica].taglia) {
             document.querySelector('input[name="inlineRadioOptionsM"]:checked').checked = false;
             throw "Taglia Uguale";
         }
 
+        ElencoBici[posizioneModifica].nuovoModello(modello);
         ElencoBici[posizioneModifica].nuovaTaglia(taglia);
         StampaTabella();
         alert("Informazioni Modificate");
