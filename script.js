@@ -43,7 +43,7 @@ class Bicicletta {
         }
         if (this.#velocita > 100) {
             alert("La Velocità non può essere maggiore di 100 km/h");
-            this.#velocita = 0;
+            this.#velocita = 100;
         }
         StampaTabella();
     }
