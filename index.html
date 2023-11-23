@@ -1,0 +1,247 @@
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background-color: aqua !important;
+      font-family: Georgia, serif;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff !important;
+      border-color: #b4d1f1 !important;
+      border-radius: 8px !important;
+      border-width: 3px !important;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3 !important;
+      border-color: #0056b3 !important;
+    }
+
+    .btn-primary:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5) !important;
+    }
+
+    .btn-primary:active {
+      background-color: #004080 !important;
+      border-color: #003366 !important;
+    }
+
+    .modal-content {
+      background-color: rgb(13, 119, 211) !important;
+    }
+
+    .modal-body {
+      background-color: rgb(106, 253, 253) !important;
+    }
+
+    .table {
+      background-color: rgb(255, 255, 234);
+      border-radius: 10px !important;
+      border-width: 0px !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center">
+    <br>
+    <div class="row mb-3">
+      <div class="col">
+        <button type="button" style="width: 50% !important" class="btn btn-primary btn-block" data-bs-toggle="modal"
+          data-bs-target="#modalBici">
+          Inserisci Bicicletta
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" style="width: 50% !important" class="btn btn-primary btn-block" data-bs-toggle="modal"
+          data-bs-target="#modalMB">
+          Inserisci MountainBike
+        </button>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col">
+        <span id="StampaTabella"></span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Modal Bicicletta-->
+  <div class="modal fade" id="modalBici" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Inserisci Bicicletta</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="Modello" class="form-label">Modello</label>
+              <input type="text" class="form-control" id="ModelloBici">
+            </div>
+            <div class="mb-3">
+              <label for="Taglia" class="form-label">Taglia: </label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsBici" id="TagliaBiciXS" value="XS">
+                <label class="form-check-label" for="TagliaBiciXS">XS</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsBici" id="TagliaBiciS" value="S">
+                <label class="form-check-label" for="TagliaBiciS">S</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsBici" id="TagliaBiciM" value="M">
+                <label class="form-check-label" for="TagliaBiciM">M</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsBici" id="TagliaBiciL" value="L">
+                <label class="form-check-label" for="TagliaBiciL">L</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsBici" id="TagliaBiciXL" value="XL">
+                <label class="form-check-label" for="TagliaBiciXL">XL</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="Velocita" class="form-label">Velocità</label>
+              <input type="number" class="form-control" id="VelocitaBici">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="InserisciBici()">Invio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Modal Mountain Bike-->
+  <div class="modal fade" id="modalMB" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Inserisci MountainBike</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="Modello" class="form-label">Modello</label>
+              <input type="text" class="form-control" id="ModelloMB">
+            </div>
+            <div class="mb-3">
+              <label for="Taglia" class="form-label">Taglia: </label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsMB" id="TagliaMBXS" value="XS">
+                <label class="form-check-label" for="TagliaMBXS">XS</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsMB" id="TagliaMBS" value="S">
+                <label class="form-check-label" for="TagliaMBS">S</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsMB" id="TagliaMBM" value="M">
+                <label class="form-check-label" for="TagliaMBM">M</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsMB" id="TagliaMBL" value="L">
+                <label class="form-check-label" for="TagliaMBL">L</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsMB" id="TagliaMBXL" value="XL">
+                <label class="form-check-label" for="TagliaMBXL">XL</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="Velocita" class="form-label">Velocità</label>
+              <input type="number" class="form-control" id="VelocitaMB">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="Marcia1" class="form-label">Marcia Selettore 1</label>
+                  <input type="number" class="form-control" id="Marcia1">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="Marcia2" class="form-label">Marcia Selettore 2</label>
+                  <input type="number" class="form-control" id="Marcia2">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="InserisciMB()">Invio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modalModifica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modifica Taglia</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="Taglia" class="form-label">Taglia: </label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsM" id="TagliaBiciXS" value="XS">
+                <label class="form-check-label" for="MTagliaBiciXS">XS</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsM" id="TagliaBiciS" value="S">
+                <label class="form-check-label" for="MTagliaBiciS">S</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsM" id="TagliaBiciM" value="M">
+                <label class="form-check-label" for="MTagliaBiciM">M</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsM" id="TagliaBiciL" value="L">
+                <label class="form-check-label" for="MTagliaBiciL">L</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptionsM" id="TagliaBiciXL" value="XL">
+                <label class="form-check-label" for="MTagliaBiciXL">XL</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="Modifica()">Invio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="script.js"></script>
+</body>
+
+</html>
