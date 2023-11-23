@@ -24,10 +24,6 @@ class Bicicletta {
         return this.#id;
     }
 
-    get modello() {
-        return this.#modello;
-    }
-
     get velocita() {
         return this.#velocita;
     }
@@ -253,17 +249,17 @@ function Modifica() {
         if (!modello.trim()) {
             throw "Il campo Modello non può essere vuoto";
         }
+
+        if (modello == ElencoBici[posizioneModifica].modello) {
+            document.getElementById("ModelloM").value = "";
+            throw "Modello Uguale";
+        }
         
         if (!tagliaElement) {
             throw "Seleziona una Taglia";
         }
         
         let taglia = tagliaElement.value;
-
-        if (modello == ElencoBici[posizioneModifica].modello) {
-            document.getElementById("ModelloM").value = "";
-            throw "Modello Uguale";
-        }
 
         if (taglia == ElencoBici[posizioneModifica].taglia) {
             document.querySelector('input[name="inlineRadioOptionsM"]:checked').checked = false;
@@ -276,6 +272,7 @@ function Modifica() {
         alert("Informazioni Modificate");
 
         document.querySelector('input[name="inlineRadioOptionsM"]:checked').checked = false;
+        document.getElementById("ModelloM").value = "";
     } catch (error) {
         alert("Errore: " + error);
         let modalModifica = new bootstrap.Modal(document.getElementById('modalModifica'));
